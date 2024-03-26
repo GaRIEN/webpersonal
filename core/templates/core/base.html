@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>{% block title %} {% endblock title %} | Angel Gabriel </title>
+    <title>{% block title %} {% endblock title %} | Angel Gabriel</title>
 
     {% load static %}
 
@@ -89,48 +89,35 @@
       </div>
     </header>
 
-    <div class="container">
-     
-        {% block content %} 
-        {% endblock content %}
-      
-    </div>
-    
-    {% if request.path != '/' %}  <hr> {% endif %}
- 
+    <div class="container">{% block content %} {% endblock content %}</div>
+
+    {% if request.path != '/' %}
+    <hr />
+    {% endif %}
+
     <!-- Pié de página -->
     <footer>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
+              <!--iteracion para redes sociales-->
+              {% for r in curRedes %}
+                {% if r.activo %}
+                  <li class="list-inline-item">
+                    <a href="{{r.link}}">
+                      <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="{{ curIcon[r.redSocial] }}"></i>
+
+                      </span>
+                    </a>
+                </li>
+                {% endif %} 
+              {% endfor %}
             </ul>
             <p class="copyright text-muted">
-              Copyright &copy; 2018 · Juan Pérez (Ingeniero Industrial)
+              Copyright &copy; 2018 · Angel Gabriel (sistemas)
             </p>
           </div>
         </div>
