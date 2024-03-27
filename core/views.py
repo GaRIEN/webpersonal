@@ -1,15 +1,25 @@
-from django.shortcuts import render,HttpResponse,redirect
+from django.shortcuts import render
 from .models import redesSociales, IconRedesSociales
-
-
-# Create your views here.
 
 def home(request):
     redes = redesSociales.objects.all()
-    curIcon = {red.redSocial: red.redSocial.icon for red in redes}  # Crear un diccionario de red social: ícono
-    return render(request, 'core/home.html', {'curRedes': redes, 'curIcon': curIcon})
+    
+    # Iterar sobre cada red social y buscar su imagen correspondiente en IconRedesSociales
+    for red in redes:
+        try:
+            # Buscar la imagen correspondiente en IconRedesSociales basada en el nombre de la red social
+            icono = IconRedesSociales.objects.get(nombre=red.redSocial)
+            # Asignar la imagen encontrada a la red social actual
+            red.imagen = icono.icon
+        except IconRedesSociales.DoesNotExist:
+            # Si no se encuentra una imagen, asignar None
+            red.imagen = None
+    
+    return render(request, 'core/home.html', {'curRedes': redes})
 
 def about(request):
-    return render(request,'core/about.html')
+    return render(request, 'core/about.html')
+
 def contacto(request):
-    return render(request,'core/contacto.html')
+    return render(request, 'core/contacto.html')
+
