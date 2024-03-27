@@ -80,18 +80,18 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <ul class="list-inline text-center">
             <!--iteracion para redes sociales-->
-            {% for r in curRedes %}
-            {% if r.activo %}
+            <!-- {% for r in curRedes %}
+            {% if r.activo %} -->
             <li class="list-inline-item">
               <a href="{{r.link}}">
 
-                <div class="rounded-circle" style="overflow: hidden; width: 40px; height: 40px;">
-                  {% if r.redSocial.icon %}
-                  <img src="{{ r.redSocial.icon.url }}" alt="{{ r.redSocial }}" style="width: 100%;">
-                  {% else %}
-                  <span>{{ r.redSocial }}</span>
-                  {% endif %}
-                </div>
+                <!-- {% if r.redSocial.icon %}
+                <img src="{{ r.redSocial.icon.url }}" alt="{{ r.redSocial }}" class="rounded-circle"
+                  style="width: 40px; height: 40px;">
+                {% else %}
+                <span>{{ r.redSocial }}</span>
+                {% endif %} -->
+
                 <!-- <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
                         
@@ -99,8 +99,8 @@
                       </span> -->
               </a>
             </li>
-            {% endif %}
-            {% endfor %}
+            <!-- {% endif %}
+            {% endfor %} -->
           </ul>
           <p class="copyright text-muted">
             Copyright &copy; 2018 · Angel Gabriel (sistemas)
