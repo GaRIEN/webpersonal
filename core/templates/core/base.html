@@ -76,18 +76,37 @@
 
  <!-- Agregar esto en el lugar donde deseas verificar si curRedes está vacío -->
  
- hola 
- 
- {% for r in curRedes %}
- {% if r.activo %}
- <li class="list-inline-item">
-   <a href="{{r.link}}">facebook</a>
- </li>
- {% endif %}
- {% endfor %}
-  
+ <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          <!--iteracion para redes sociales-->
+          {% for r in curRedes %}
+          {% if r.activo %}
+          <li class="list-inline-item">
+            <a href="{{r.link}}">
 
+              {% if r.redSocial.icon %}
+              <img src="{{ r.redSocial.icon.url }}" alt="{{ r.redSocial }}" class="rounded-circle"
+                style="width: 40px; height: 40px;">
+              {% else %}
+              <span>{{ r.redSocial }}</span>
+              {% endif %}
 
+        
+            </a>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; 2018 · Angel Gabriel (sistemas)
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
 
   <!-- Bootstrap y Javascripts -->
   <script src="{% static  'core/vendor/jquery/jquery.min.js' %}"></script>
