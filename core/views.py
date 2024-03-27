@@ -1,10 +1,19 @@
-from django.shortcuts import render,HttpResponse,redirect
+from django.shortcuts import render
+# from .models import redesSociales, IconRedesSociales
 
-# Create your views here.
+# def home(request):
+#     # redes = redesSociales.objects.all()
+            
+#     return render(request, 'core/home.html', {'curRedes': redes})
+
 
 def home(request):
-    return render(request,'core/home.html')
+       
+   return render(request, 'core/home.html')
+
 def about(request):
-    return render(request,'core/about.html')
+    return render(request, 'core/about.html')
+
 def contacto(request):
-    return render(request,'core/contacto.html')
+    return render(request, 'core/contacto.html')
+
